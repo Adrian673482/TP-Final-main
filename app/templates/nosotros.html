@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content%}
+    <!--Nosotros -->
+  <div class="container-fluid"> 
+    <main>
+        <div class="container-fluid px-4 mb-5 text-center ">
+            <div class="m-2 h4 pb-2 mb-4 text-success border-bottom border-success">
+                <h4>NOSOTROS</h4>
+              </div>
+            <div class="row gap-4 gx-4 gx-lg-5 m-3 justify-content-center">
+              <div class="col-5">
+                <img src="{{ url_for('static', filename='img/local/local1.jpg') }}" class="rounded mx-auto d-block card-img-top" alt="">
+              </div>
+              <div class="col-5">
+                <img src="{{ url_for('static', filename='img/local/local2.webp') }}" class="rounded mx-auto d-block card-img-top" alt="">
+              </div>
+              <div class="m-2 h4 pb-2 mb-4 text-success border-bottom border-success">
+                <h4>ASESORAMIENTO PERSONALIZADO PARA TU PROYECTO</h4>
+              </div>
+              <div class="text-success">
+                <p>Iluminación Leds nace de una necesidad del mercado donde pudimos enfocarnos en brindar esa asesoría que el cliente necesita a la hora de elegir iluminación para su proyecto.
+                    Contamos con un Showroom de más de 500 mts de exhibición, stock permanente con entrega inmediata en todas las marcas del mercado.
+                    Nos especializamos en la atención a estudios de arquitectura, empresas constructoras y proyectos particulares.
+                    Tenemos una política de precios sólida, nos comprometemos siempre a mejorar cualquier presupuesto, apoyando en todo momento su proyecto y adaptándonos en función a su necesidad.
+                    Contamos con todas las formas de pago y brindamos asesoría constante. Esperamos su contacto para comenzar a realizar buenos negocios.</p>
+              </div>
+            </div>
+          </div>
+    </main>
+  </div>
+   {% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content%}
+    <!-- Formulario -->
+ <div class="container-fluid">
+    <main
+      class="container row m-auto d-flex align-items-center justify-content-center"
+      style="height: calc(100vh - 56px)">
+      <form
+        class="col-12 col-md-6"
+        id="form"
+        method="POST"
+        action="{{ url_for('usuarios') }}">
+        {{ form.hidden_tag() }}
+        <h3 class="md-3 fw-normal">Iniciar Sesión</h3>
+        {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+          {% for field, errors in form.errors.items() %} {% for error in errors
+          %} {{ error }} {% endfor %} {% endfor %}
+        </div>
+        {% endif %}
+        <div class="d-flex flex-column gap-1">
+          <div class="form-floating">
+            {{ form.username(class_="form-control",
+            placeholder="ejemploDeNombre") }}
+            <label for="user">Nombre de Usuario</label>
+          </div>
+          <div class="form-floating">
+            {{ form.password(class_="form-control", placeholder="password") }}
+            <label for="password">Password</label>
+          </div>
+          <p class="my-2">
+            ¿Eres Nuevo?
+            <a href="{{ url_for('registro_usuarios') }}">Resgístrate</a>
+          </p>
+          {{ form.submit(class_="btn btn-success w-100 py-2") }}
+        </div>
+      </form>
+    </main>
+ </div>
+  {% endblock %}

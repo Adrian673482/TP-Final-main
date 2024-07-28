@@ -1,0 +1,88 @@
+<!-- /templates/index.html -->
+{% extends "base.html" %}
+
+{% block content %}
+  <!-- Carrusel -->
+  <div class="container-fluid">
+    <div class="row">
+      <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <img src="{{ url_for('static', filename='img/carrusel/osram.jpg') }}" width="350" height="350" class="d-block w-100" alt="Osram"/>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Nuestras marcas</h5>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="{{ url_for('static', filename='img/carrusel/philips.png') }}" width="350" height="350" class="d-block w-100" alt="Philips"/>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Nuestras marcas</h5>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="{{ url_for('static', filename='img/carrusel/elekluz.jpg') }}" width="350" height="350" class="d-block w-100" alt="Elekluz"/>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Nuestras marcas</h5>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="{{ url_for('static', filename='img/carrusel/ledproles.png') }}" width="350" height="350" class="d-block w-100" alt="Led Proles"/>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Nuestras marcas</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='img/carrusel/ledcompany.png') }}" width="350" height="350" class="d-block w-100" alt="Led Company"/>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Nuestras marcas</h5>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Productos -->
+  <div class="container-fluid">
+    <div class="row">
+      <section class="text-center mb-5" id="">
+        <h3 class="display-6">Productos</h3>
+        <div class="row gap-4 gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+          {% for producto in productos %}
+          <div class="col">
+            <div class="card h-100">
+              <img class="card-img-top" src="{{ url_for('static', filename='img/productos/' ~ producto.imagen) }}" alt="">
+              <div class="card-body p-4">
+                <div class="text-center">
+                  <h5 class="fw-bolder">{{ producto.nombre_producto }}</h5>
+                  <span>${{ producto.precio }}</span>
+                </div>
+              </div>
+              <div class="card-footer p-4 pt-0 border-top-0 br-transparent">
+                <div class="text-center">
+                  <a href="{{ url_for('agregar_al_carrito', producto_id=producto.id_producto) }}" class="btn btn-outline-success mt-auto">Añadir al carrito</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <section class="text-center mb-5">
+        <h3 class="display-6">Productos</h3>
+        <div class="row gap-4 gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            {% for producto in productos %}
+            <div class="col">
+                <div class="card h-100">
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/productos/' ~ producto.imagen) }}" alt="">
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <h5 class="fw-bolder">{{ producto.nombre_producto }}</h5>
+                            <span>${{ producto.precio }}</span>
+                        </div>
+                    </div>
+                    <div class="card-footer p-4 pt-0 border-top-0 br-transparent">
+                        <div class="text-center">
+                            <a href="" class="btn btn-outline-success mt-auto">
+                                Añadir al carrito
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}
